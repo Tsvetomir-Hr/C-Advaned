@@ -34,6 +34,7 @@ namespace BakeryOpenning
             {
                 return false;
             }
+
             data.Remove(employee);
             return true;
         }
@@ -41,9 +42,27 @@ namespace BakeryOpenning
         {
             return data.OrderByDescending(x => x.Age).FirstOrDefault();
         }
-        public Employee GetEmployee(string name)
+        public string GetEmployee(int age, string country ) //   GetEmployee(25,Bulgaria);
         {
-            return data.FirstOrDefault(x => x.Name == name);
+            StringBuilder sb = new StringBuilder();
+            int counter = 0;
+            sb.AppendLine("AllEmployees:");
+            foreach (var emp in data)
+            {
+                if (emp.Age==age && emp.Country==country)
+                {
+                    counter++;
+                    sb.AppendLine(emp.ToString());
+                }
+            }
+            if (counter==0)
+            {
+                sb.AppendLine("0");
+            }
+           return sb.ToString().TrimEnd();
+          
+         
+            
         }
         public string Report()
         {
