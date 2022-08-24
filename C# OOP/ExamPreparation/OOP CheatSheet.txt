@@ -1,0 +1,15 @@
+if (string.IsNullOrWhiteSpace(value))
+     {
+      throw new ArgumentNullException(ExceptionMessages);
+     }
+	 
+	 models.Add(model);
+	 return models.FirstOrDefault(x => x.Name == name);
+	 return models.Remove(model);
+	 
+	      [Test]
+           public void Test()
+            { 
+
+            }
+	 
